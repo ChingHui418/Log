@@ -1,0 +1,10 @@
+# Java
+**/target/
+**.class
+
+# Node / React
+**/node_modules/
+
+# IDE
+.vscode/
+.idea/
