@@ -36,4 +36,17 @@ public class NoteService {
                            .map(this::getNoteDto)
                            .collect(Collectors.toList());    
     }
+
+    // 前端傳回的 Dto 轉換成 Entity
+    public NoteDto createNote(NoteDto noteDto) {
+        NoteEntity noteEntity = new NoteEntity();
+
+        noteEntity.setTitle(noteDto.getTitle());
+        noteEntity.setWeather(noteDto.getWeather());
+        noteEntity.setPhotoUrl(noteDto.getPhotoUrl());
+
+        NoteEntity savedNoteEntity = noteRepository.save(noteEntity);
+
+        return getNoteDto(savedNoteEntity);
+    }
 }
